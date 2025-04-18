@@ -67,6 +67,18 @@ Create a basic university club portal where:
 | `/this-week/`             | 🔥 Shows only events happening this week (Mon–Sun) |
 
 ---
+## ✨ Special Feature: This Week's Events
 
-## 🛠 Project Structure
+A view is implemented to display only the events happening this week (Monday to Sunday).  
+You can access this view at:  
+---
+## 👨‍💻 How to Use
+
+### 1. Clone & Setup
+```bash
+git clone https://github.com/yourusername/clubconnect.git
+cd clubconnect
+python manage.py migrate
+python manage.py runserver
+
 
