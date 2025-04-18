@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Latest Announcements</h2>
+    {% for announcement in announcements %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ announcement.title }}</h5>
+            <p class="card-text">{{ announcement.message }}</p>
+            <p class="text-muted"><small>Posted on: {{ announcement.posted_on }}</small></p>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-center">No announcements available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

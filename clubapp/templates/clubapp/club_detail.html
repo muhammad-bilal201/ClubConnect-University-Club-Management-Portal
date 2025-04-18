@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="mt-3">{{ club.name }}</h2>
+    <p>{{ club.description }}</p>
+    <h5>Founded: {{ club.founded_date }}</h5>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h4>Members</h4>
+            <ul class="list-group">
+                {% for member in club.members.all %}
+                <li class="list-group-item">{{ member.name }} - <b>{{ member.role }}</b></li>
+                {% empty %}
+                <p class="text-muted">No members yet.</p>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Upcoming Events</h4>
+            <ul class="list-group">
+                {% for event in club.events.all %}
+                <li class="list-group-item">{{ event.title }} - <i>{{ event.date }}</i></li>
+                {% empty %}
+                <p class="text-muted">No upcoming events.</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <h4 class="mt-4">Announcements</h4>
+    <div class="list-group">
+        {% for announcement in club.announcements.all %}
+        <div class="list-group-item">
+            <h5>{{ announcement.title }}</h5>
+            <p>{{ announcement.message }}</p>
+            <small class="text-muted">Posted on: {{ announcement.posted_on }}</small>
+        </div>
+        {% empty %}
+        <p class="text-muted">No announcements yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

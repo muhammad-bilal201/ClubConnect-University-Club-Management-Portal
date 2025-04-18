@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Student Clubs</h2>
+    <div class="row">
+        {% for club in clubs %}
+        <div class="col-md-4">
+            <div class="card shadow-lg mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ club.name }}</h5>
+                    <p class="card-text">{{ club.description|truncatewords:15 }}</p>
+                    <a href="{% url 'club_detail' club.id %}" class="btn btn-primary">View Club</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No clubs available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
